@@ -1,17 +1,32 @@
 ﻿using ByteBank.Modelos;
+using ByteBank.SitemaAgencia;
+
+ListaDeContaCorrente lista = new ListaDeContaCorrente();
+
+lista.Adicionar(new ContaCorrente(345, 23462));
+lista.Adicionar(new ContaCorrente(363, 22451));
+lista.Adicionar(new ContaCorrente(735, 23552));
+lista.Adicionar(new ContaCorrente(345, 23462));
+lista.Adicionar(new ContaCorrente(363, 22451));
+lista.Adicionar(new ContaCorrente(735, 23552));
+lista.Adicionar(new ContaCorrente(345, 23462));
+lista.Adicionar(new ContaCorrente(363, 22451));
+lista.Adicionar(new ContaCorrente(735, 23552));
+lista.Adicionar(new ContaCorrente(345, 23462));
+lista.Adicionar(new ContaCorrente(363, 22451));
+lista.Adicionar(new ContaCorrente(735, 23552));
+lista.Adicionar(new ContaCorrente(345, 23462));
+lista.Adicionar(new ContaCorrente(363, 22451));
+lista.Adicionar(new ContaCorrente(735, 23552));
+lista.Adicionar(new ContaCorrente(345, 23462));
+lista.Adicionar(new ContaCorrente(363, 22451));
+lista.Adicionar(new ContaCorrente(735, 23552));
 
 
-int[] idades = new int[] { 15, 28, 35, 50, 28 };
 
-int sum = 0;
 
-for (int i = 0; i < idades.Length; i++)
-{
-    int idade = idades[i];
-    Console.WriteLine($"Valor do índice {i}: {idade}");
 
-    sum += idade;
-}
 
-int media = sum / idades.Length;
-Console.WriteLine(media);
+
+
+
