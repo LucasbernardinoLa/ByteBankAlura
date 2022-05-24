@@ -3,7 +3,7 @@
     /// <summary>
     /// Classe para representar uma conta corrente do banco ByteBank
     /// </summary>
-    public class ContaCorrente
+    public class ContaCorrente : IComparable
     {
         public static double TaxaOperacao { get; private set; }
         public static int TotalDeContasCriadas { get; private set; }
@@ -98,6 +98,28 @@
                 throw new OperacaoFinanceiraException("Operação não realizada", ex);
             }
             contaDestino.Depositar(valor);
+        }
+
+        public override bool Equals(object obj)
+        {
+            ContaCorrente outraConta = obj as ContaCorrente;
+
+            if (outraConta == null)
+            {
+                return false;
+            }
+
+            return Numero == outraConta.Numero && Agencia == outraConta.Agencia;
+        }
+
+        public int CompareTo(object? obj)
+        {
+            if(!(obj is ContaCorrente))
+            {
+                throw new ArgumentException();
+            }
+            ContaCorrente other = obj as ContaCorrente;
+            return Numero.CompareTo(other.Numero);
         }
     }
 }

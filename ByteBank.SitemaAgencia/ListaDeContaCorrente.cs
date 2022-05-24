@@ -6,8 +6,15 @@ namespace ByteBank.SitemaAgencia
     {
         private ContaCorrente[] _itens;
         private int _proximaPosicao;
+        public int Tamanho
+        {
+            get
+            {
+                return _proximaPosicao;
+            }
+        }
 
-        public ListaDeContaCorrente()
+        public ListaDeContaCorrente(int capacidadeInicial = 5)
         {
             _itens = new ContaCorrente[5];
             _proximaPosicao = 0;
@@ -45,5 +52,53 @@ namespace ByteBank.SitemaAgencia
             }
             _itens = novoArray;
         }
+
+        public void Remover(ContaCorrente item)
+        {
+            int indiceItem = -1;
+
+            for (int i = 0; i < _proximaPosicao; i++)
+            {
+                ContaCorrente itemAtual = _itens[i];
+
+                if (itemAtual.Equals(item))
+                {
+                    indiceItem = i;
+                    break;
+                }
+            }
+            for (int i = indiceItem; i < _proximaPosicao - 1; i++)
+            {
+                _itens[i] = _itens[i + 1];
+            }
+
+            _proximaPosicao--;
+            _itens[_proximaPosicao] = null;
+        }
+        private ContaCorrente GetItemNoIndice(int indice)
+        {
+            if (indice < 0 || indice >= _proximaPosicao)
+            {
+                throw new ArgumentOutOfRangeException(nameof(indice));
+            }
+            
+            return _itens[indice];
+        }
+        public ContaCorrente this[int indice]
+        {
+            get
+            {
+                return GetItemNoIndice(indice);
+            }
+        }
+        public void AdicionarVarios(params ContaCorrente[] itens)
+        {
+            foreach (ContaCorrente conta in itens)
+            {
+                Adicionar(conta);
+            }
+        }
+
+
     }
 }
