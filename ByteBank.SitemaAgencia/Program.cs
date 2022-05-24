@@ -1,18 +1,33 @@
 ﻿using ByteBank.Modelos;
 using ByteBank.SitemaAgencia.Extensoes;
 
-List<int> idades = new List<int>();
+var contas = new List<ContaCorrente>()
+            {
+                new ContaCorrente(341, 1),
+                new ContaCorrente(342, 999),
+                null,
+                new ContaCorrente(340, 4),
+                new ContaCorrente(340, 456),
+                new ContaCorrente(340, 10),
+                null,
+                null,
+                new ContaCorrente(290, 123)
+            };
 
-idades.AdicionarVarios(39, 81, 1, 5, 14, 25, 38, 61);
 
-idades.Sort();
 
-for (int i = 0; i < idades.Count; i++)
+var contasOrdenadas = contas
+    .Where(conta => conta != null)
+    .OrderBy(conta => conta.Numero);
+
+foreach (var conta in contasOrdenadas)
 {
-    Console.WriteLine(idades[i]);
+    Console.WriteLine($"Conta número {conta.Numero}, ag. {conta.Agencia}");
 }
 
 
+Console.ReadLine();
+        
 
 
 
