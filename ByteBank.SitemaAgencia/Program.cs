@@ -1,8 +1,17 @@
 ﻿using ByteBank.Modelos;
-using System.Text.RegularExpressions;
 
-string padrao = "[0-9]{4,5}-?[0-9]{4}";
-string texto = "Meu número é: 2342-3453";
 
-Match match = Regex.Match(texto, padrao);
-Console.WriteLine(match.Value);
+int[] idades = new int[] { 15, 28, 35, 50, 28 };
+
+int sum = 0;
+
+for (int i = 0; i < idades.Length; i++)
+{
+    int idade = idades[i];
+    Console.WriteLine($"Valor do índice {i}: {idade}");
+
+    sum += idade;
+}
+
+int media = sum / idades.Length;
+Console.WriteLine(media);
